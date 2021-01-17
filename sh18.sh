@@ -5012,4 +5012,4 @@ else
     echo "OS NOT SUPPORTED.\n"
     echo "Contact info@createproxy.com to add support for your os."
     exit 1;
-fi
+if
