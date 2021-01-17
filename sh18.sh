@@ -5008,3 +5008,8 @@ if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 18.04"; then
     /sbin/iptables -I INPUT -p tcp --dport 9999 -j ACCEPT
     /sbin/iptables -I INPUT -p tcp --dport 10000 -j ACCEPT
     /sbin/iptables-save
+else
+    echo "OS NOT SUPPORTED.\n"
+    echo "Contact info@createproxy.com to add support for your os."
+    exit 1;
+fi
