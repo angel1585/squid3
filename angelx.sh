@@ -2,9 +2,10 @@
 if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 18.04"; then
     /usr/bin/apt update
     /usr/bin/apt -y install apache2-utils squid3
+    touch /etc/squid/passwords
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
-    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/angel1585/squid3/main/angel.conf
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://github.com/angel1585/squid3/blob/main/angel.conf
     /sbin/iptables -I INPUT -p tcp --dport 5000 -j ACCEPT
     /sbin/iptables -I INPUT -p tcp --dport 5001 -j ACCEPT
     /sbin/iptables -I INPUT -p tcp --dport 5002 -j ACCEPT
@@ -5007,6 +5008,7 @@ if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 18.04"; then
     /sbin/iptables -I INPUT -p tcp --dport 9999 -j ACCEPT
     /sbin/iptables -I INPUT -p tcp --dport 10000 -j ACCEPT
     /sbin/iptables-save
+	/usr/bin/htpasswd -b -c /etc/squid/passwords hypercrack
     
     service squid restart
     systemctl enable squid
