@@ -5008,4 +5008,3 @@ if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 18.04"; then
     /sbin/iptables -I INPUT -p tcp --dport 9999 -j ACCEPT
     /sbin/iptables -I INPUT -p tcp --dport 10000 -j ACCEPT
     /sbin/iptables-save
-    /usr/bin/htpasswd -b -c /etc/squid/passwords hypercrack
